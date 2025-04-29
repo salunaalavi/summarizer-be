@@ -7,8 +7,8 @@ app = FastAPI()
 
 # Load model and tokenizer
 device = "cuda" if torch.cuda.is_available() else "cpu"
-model = AutoModelForSeq2SeqLM.from_pretrained("./summarizer_model").to(device)
-tokenizer = AutoTokenizer.from_pretrained("./summarizer_model")
+model = AutoModelForSeq2SeqLM.from_pretrained("salunaalavi/bert-based-summarization-10-epochs").to(device)
+tokenizer = AutoTokenizer.from_pretrained("salunaalavi/bert-based-summarization-10-epochs")
 
 class SummarizeRequest(BaseModel):
     text: str
