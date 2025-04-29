@@ -1,11 +1,11 @@
 import gradio as gr
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, EncoderDecoderModel
 import torch
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 model_path = "salunaalavi/bert-based-summarization-10-epochs"
 
-model = AutoModelForSeq2SeqLM.from_pretrained(model_path, torch_dtype=torch.float16 if device == "cuda" else torch.float32,).to(device)
+model = EncoderDecoderModel.from_pretrained(model_path).to(device)
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 
 def summarize(text):
