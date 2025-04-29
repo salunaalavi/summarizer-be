@@ -1,4 +1,4 @@
-transformers>=4.38.0
-torch>=2.0.0
-gradio>=4.0
-sentencepiece
+fastapi
+uvicorn
+transformers
+torch
